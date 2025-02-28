@@ -1,70 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <!-- Container principal que organiza os elementos verticalmente -->
-    <LinearLayout
+    <!-- Barra Superior (Toolbar) -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:layout_height="?attr/actionBarSize"
+        android:background="#9C27B0"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:title="Cadastro"
+        app:titleTextColor="@android:color/white" />
 
-        <!-- Campo Nome -->
-        <EditText
-            android:id="@+id/etNome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nome" />
+    <!-- Conteúdo Rolável -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-        <!-- Campo Email -->
-        <EditText
-            android:id="@+id/etEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Email"
-            android:inputType="textEmailAddress" />
-
-        <!-- Campo Telefone -->
-        <EditText
-            android:id="@+id/etTelefone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Telefone"
-            android:inputType="phone" />
-
-        <!-- Campo Endereço -->
-        <EditText
-            android:id="@+id/etEndereco"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Endereco" />
-
-        <!-- Espaço para separar os campos dos botões -->
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp" />
-
-        <!-- Layout para os botões Salvar e Limpar -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:orientation="vertical"
+            android:padding="16dp">
 
-            <Button
-                android:id="@+id/btnSalvar"
+            <!-- Nome completo -->
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Salvar" />
+                android:text="Nome completo"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/btnLimpar"
+            <EditText
+                android:id="@+id/etNomeCompleto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nome completo"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Telefone -->
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Limpar"
-                android:layout_marginStart="16dp" />
+                android:text="Telefone"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etTelefone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ex: 12-93456-7890"
+                android:inputType="phone"
+                android:layout_marginBottom="8dp" />
+
+            <!-- E-mail -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="E-mail"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="E-mail"
+                android:inputType="textEmailAddress"
+                android:layout_marginBottom="8dp" />
+
+            <!-- CheckBox: lista de e-mails -->
+            <CheckBox
+                android:id="@+id/cbListaEmails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ingressar na lista de e-mails?"
+                android:layout_marginBottom="8dp" />
+
+            <!-- Sexo -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sexo"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:id="@+id/rgSexo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+
+                <RadioButton
+                    android:id="@+id/rbMasculino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Masculino" />
+
+                <RadioButton
+                    android:id="@+id/rbFeminino"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Feminino"
+                    android:layout_marginStart="16dp" />
+            </RadioGroup>
+
+            <!-- Cidade -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cidade"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etCidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Cidade"
+                android:layout_marginBottom="8dp" />
+
+            <!-- UF -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UF"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerUF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/ufs"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Botões -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/btnLimpar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Limpar" />
+
+                <Button
+                    android:id="@+id/btnSalvar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Salvar"
+                    android:layout_marginStart="16dp" />
+            </LinearLayout>
+
         </LinearLayout>
-
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
+</LinearLayout>

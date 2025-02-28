@@ -1,12 +1,19 @@
-package com.example.projeto_cadastro
-
-class Formulario(
-    private val nome: String,
-    private val email: String,
-    private val telefone: String,
-    private val endereco: String
+data class Formulario(
+    val nomeCompleto: String,
+    val telefone: String,
+    val email: String,
+    val listaEmails: Boolean,
+    val sexo: String,
+    val cidade: String,
+    val uf: String
 ) {
     override fun toString(): String {
-        return "Nome: $nome || Email: $email || Telefone: $telefone || Endereco: $endereco"
+        return "Nome: $nomeCompleto\n" +
+                "Telefone: $telefone\n" +
+                "Email: $email\n" +
+                "Ingressar na lista: $listaEmails\n" +
+                "Sexo: $sexo\n" +
+                "Cidade: $cidade\n" +
+                "UF: $uf"
     }
 }
