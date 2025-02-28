@@ -18,8 +18,6 @@ class MainActivity : AppCompatActivity() {
         val etEmail = findViewById<EditText>(R.id.etEmail)
         val cbListaEmails = findViewById<CheckBox>(R.id.cbListaEmails)
         val rgSexo = findViewById<RadioGroup>(R.id.rgSexo)
-        val rbMasculino = findViewById<RadioButton>(R.id.rbMasculino)
-        val rbFeminino = findViewById<RadioButton>(R.id.rbFeminino)
         val etCidade = findViewById<EditText>(R.id.etCidade)
         val spinnerUF = findViewById<Spinner>(R.id.spinnerUF)
 
