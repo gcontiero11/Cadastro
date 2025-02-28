@@ -11,10 +11,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
-        // Infla o layout XML com os campos do formulário
         setContentView(R.layout.activity_main)
 
-        // Referências para as Views do XML
         val etNomeCompleto = findViewById<EditText>(R.id.etNomeCompleto)
         val etTelefone = findViewById<EditText>(R.id.etTelefone)
         val etEmail = findViewById<EditText>(R.id.etEmail)
@@ -28,16 +26,13 @@ class MainActivity : AppCompatActivity() {
         val btnSalvar = findViewById<Button>(R.id.btnSalvar)
         val btnLimpar = findViewById<Button>(R.id.btnLimpar)
 
-        // Clique do botão Salvar
         btnSalvar.setOnClickListener {
-            // Verifica qual opção de sexo está marcada
             val sexoSelecionado = when (rgSexo.checkedRadioButtonId) {
                 R.id.rbMasculino -> "Masculino"
                 R.id.rbFeminino -> "Feminino"
                 else -> "Não informado"
             }
 
-            // Cria um objeto Formulario com os dados preenchidos
             val formulario = Formulario(
                 nomeCompleto = etNomeCompleto.text.toString(),
                 telefone = etTelefone.text.toString(),
@@ -48,19 +43,17 @@ class MainActivity : AppCompatActivity() {
                 uf = spinnerUF.selectedItem.toString()
             )
 
-            // Exibe os dados utilizando um Toast
             Toast.makeText(this, formulario.toString(), Toast.LENGTH_LONG).show()
         }
 
-        // Clique do botão Limpar
         btnLimpar.setOnClickListener {
             etNomeCompleto.text.clear()
             etTelefone.text.clear()
             etEmail.text.clear()
             cbListaEmails.isChecked = false
-            rgSexo.clearCheck()          // Desmarca os RadioButtons
+            rgSexo.clearCheck()
             etCidade.text.clear()
-            spinnerUF.setSelection(0)    // Retorna o Spinner para a 1ª opção
+            spinnerUF.setSelection(0)
         }
     }
 }
